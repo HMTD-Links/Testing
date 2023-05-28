@@ -11,7 +11,7 @@ from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 from Adarsh.utils.file_properties import get_name, get_hash, get_media_file_size
-db = Database(Var.DATABASE_URL, Var.name)
+db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 
 MY_PASS = os.environ.get("MY_PASS", None)
