@@ -9,3 +9,4 @@ apscheduler
 requests
 psutil
 pyromod==1.5
+pyshorteners
