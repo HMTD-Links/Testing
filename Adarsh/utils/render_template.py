@@ -3,11 +3,12 @@ from Adarsh.bot import StreamBot
 from Adarsh.utils.human_readable import humanbytes
 from Adarsh.utils.file_properties import get_file_ids
 from Adarsh.server.exceptions import InvalidHash
+from Adarsh.utils.file_properties import get_name, get_hash, get_media_file_size
 import urllib.parse
 import aiofiles
 import logging
 import aiohttp
-
+from urllib.parse import quote_plus
 
 async def render_page(id, secure_hash):
     file_data=await get_file_ids(StreamBot, int(Var.BIN_CHANNEL), int(id))
@@ -15,7 +16,7 @@ async def render_page(id, secure_hash):
         logging.debug(f'link hash: {secure_hash} - {file_data.unique_id[:6]}')
         logging.debug(f"Invalid hash for message with - ID {id}")
         raise InvalidHash
-    src = urllib.parse.urljoin(Var.URL, f'{secure_hash}{str(id)}')
+    src = urllib.parse.urljoin(Var.URL, f'{str(id)}/{quote_plus(get_name(id))}?hash={secure_hash}')
     if str(file_data.mime_type.split('/')[0].strip()) == 'video':
         async with aiofiles.open('Adarsh/template/req.html') as r:
             heading = 'Watch {}'.format(file_data.file_name)
