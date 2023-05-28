@@ -24,8 +24,11 @@ class Var(object):
     PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
     OWNER_ID = set(int(x) for x in os.environ.get("OWNER_ID", "").split())  
     NO_PORT = bool(getenv('NO_PORT', False))
+    HASH_LENGTH = int(environ.get("HASH_LENGTH", 7))
+    if not 5 < HASH_LENGTH < 64:
+        sys.exit("Hash length should be greater than 5 and less than 64")
     APP_NAME = str(getenv('APP_NAME'))
-    OWNER_USERNAME = str(getenv('OWNER_USERNAME'))
+    OWNER_USERNAME = str(getenv('OWNER_USERNAME', "TG_Karthik"))
     if 'DYNO' in environ:
         ON_HEROKU = True
         APP_NAME = str(getenv('APP_NAME', "file-to-link-star-bots"))
