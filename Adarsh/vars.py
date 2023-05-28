@@ -12,6 +12,9 @@ class Var(object):
     API_ID = int(getenv('API_ID'))
     API_HASH = str(getenv('API_HASH'))
     BOT_TOKEN = str(getenv('BOT_TOKEN'))
+    SESSION_NAME = str(getenv('SESSION_NAME', 'Star_Bots_Tamil'))    
+    OWNER_ID = int(getenv("OWNER_ID", "1391556668"))
+    API = str(getenv('API', 'd03a53149bf186ac74d58ff80d916f7a79ae5745'))
     name = str(getenv('name', 'filetolinkbot'))
     SLEEP_THRESHOLD = int(getenv('SLEEP_THRESHOLD', '60'))
     WORKERS = int(getenv('WORKERS', '4'))
@@ -25,7 +28,7 @@ class Var(object):
     OWNER_USERNAME = str(getenv('OWNER_USERNAME'))
     if 'DYNO' in environ:
         ON_HEROKU = True
-        APP_NAME = str(getenv('APP_NAME'))
+        APP_NAME = str(getenv('APP_NAME', "file-to-link-star-bots"))
     
     else:
         ON_HEROKU = False
@@ -35,6 +38,8 @@ class Var(object):
         URL = "https://{}/".format(FQDN)
     else:
         URL = "http://{}/".format(FQDN)
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001342411240"))
+    BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", True))    
     DATABASE_URL = str(getenv('DATABASE_URL'))
     UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', None))
     BANNED_CHANNELS = list(set(int(x) for x in str(getenv("BANNED_CHANNELS", "-1001362659779")).split())) 
