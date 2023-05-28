@@ -18,11 +18,12 @@ db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 broadcast_ids = {}
 
 
-@StreamBot.on_message(filters.command("stats") & filters.private & filters.user(Var.OWNER_ID))
+@StreamBot.on_message(filters.command("stats") & filters.private )
 async def sts(c: Client, m: Message):
-    total_users = await db.total_users_count()
-    await m.reply_text(text=f"<b>Total Users in Database :-</b> <code>{total_users}</code>", parse_mode=ParseMode.HTML, quote=True)
-
+    user_id=m.from_user.id
+    if user_id in Var.OWNER_ID:
+        total_users = await db.total_users_count()
+        await m.reply_text(text=f"<b>Total Users in Database :-</b> <code>{total_users}</code>", parse_mode=ParseMode.HTML, quote=True)
 
 @StreamBot.on_message(filters.command("broadcast") & filters.private & filters.user(Var.OWNER_ID) & filters.reply)
 async def broadcast_(c, m):
