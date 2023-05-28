@@ -231,8 +231,7 @@ async def start(client, message):
     await message.reply_text(
         text=ABOUT_TEXT.format(message.from_user.mention),
         disable_web_page_preview=True,
-        reply_markup=ABOUT_BUTTONS,
-        quote=True    
+        reply_markup=ABOUT_BUTTONS    
     )
 
 
@@ -280,8 +279,7 @@ async def help_handler(bot, message):
         text=HELP_TEXT,
         parse_mode=ParseMode.HTML,
         disable_web_page_preview=True,
-        reply_markup=HELP_BUTTONS,
-        quote=True
+        reply_markup=HELP_BUTTONS
         )
 
 BITLY_API = os.environ.get("BITLY_API", "aa2132168583d283fb288625d9352f2c5835512a")
