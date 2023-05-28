@@ -16,7 +16,7 @@ async def render_page(id, secure_hash):
         logging.debug(f'link hash: {secure_hash} - {file_data.unique_id[:6]}')
         logging.debug(f"Invalid hash for message with - ID {id}")
         raise InvalidHash
-    src = urllib.parse.urljoin(Var.URL, f'{str(id)}/{quote_plus(get_name(id))}?hash={secure_hash}')
+    src = urllib.parse.urljoin(Var.URL, f'{str(id)}?hash={secure_hash}')
     if str(file_data.mime_type.split('/')[0].strip()) == 'video':
         async with aiofiles.open('Adarsh/template/req.html') as r:
             heading = 'Watch {}'.format(file_data.file_name)
