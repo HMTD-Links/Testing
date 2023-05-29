@@ -22,7 +22,6 @@ class Var(object):
     PORT = int(getenv('PORT', 8080))
     BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', '0.0.0.0'))
     PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
-    OWNER_ID = set(int(x) for x in os.environ.get("OWNER_ID", "").split())  
     NO_PORT = bool(getenv('NO_PORT', False))
     HASH_LENGTH = int(environ.get("HASH_LENGTH", 7))
     if not 5 < HASH_LENGTH < 64:
@@ -44,5 +43,5 @@ class Var(object):
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001342411240"))
     BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", True))    
     DATABASE_URL = str(getenv('DATABASE_URL'))
-    UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', None))
+    UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', "Star_Bots_Tamil"))
     BANNED_CHANNELS = list(set(int(x) for x in str(getenv("BANNED_CHANNELS", "-1001362659779")).split())) 
