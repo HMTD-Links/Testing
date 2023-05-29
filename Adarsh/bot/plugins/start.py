@@ -87,7 +87,7 @@ async def cb_data(bot, update):
             reply_markup=HELP_BUTTONS    
         )
     elif update.data == "about":
-        await update.message.edit_text(
+        await update.edit_message_text(
             text=ABOUT_TEXT,
             disable_web_page_preview=True,
             reply_markup=ABOUT_BUTTONS    
