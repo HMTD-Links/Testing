@@ -8,7 +8,7 @@ from Adarsh.utils.human_readable import humanbytes
 from Adarsh.bot.plugins.stream import get_shortlink
 from Adarsh.utils.database import Database
 from Adarsh.utils.file_properties import get_hash, get_name
-from pyrogram import filters, enums
+from pyrogram import filters, enums, Message
 from pyrogram.enums.parse_mode import ParseMode
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
