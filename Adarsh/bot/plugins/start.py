@@ -53,27 +53,27 @@ ABOUT_TEXT = """
 
 START_BUTTONS = InlineKeyboardMarkup(
         [[ 
-        InlineKeyboardButton('🤖 Bot Updates', url="https://t.me/Star_Bots_Tamil")
+        InlineKeyboardButton('🤖 Bot Updates', url="https://t.me/Star_Bots_Tamil"),
         InlineKeyboardButton('👥 Support Group', url="https://t.me/Star_Bots_Tamil_Support"),                
-        InlineKeyboardButton('💁🏻 Help', callback_data='help')
+        InlineKeyboardButton('💁🏻 Help', callback_data='help'),
         InlineKeyboardButton('About 😁', callback_data='about'),
         InlineKeyboardButton('👨🏻‍✈️ Devloper', user_id=OWNER_ID)
         ]]
     )
 HELP_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('🤖 Bot Updates', url="https://t.me/Star_Bots_Tamil")
+        InlineKeyboardButton('🤖 Bot Updates', url="https://t.me/Star_Bots_Tamil"),
         InlineKeyboardButton('👥 Support Group', url="https://t.me/Star_Bots_Tamil_Support"),                
-        InlineKeyboardButton('🏠 Home', callback_data='home')
+        InlineKeyboardButton('🏠 Home', callback_data='home'),
         InlineKeyboardButton('About 😁', callback_data='about'),
         InlineKeyboardButton('👨🏻‍✈️ Developer', user_id=OWNER_ID)
         ]]
     )
 ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('🤖 Bot Updates', url="https://t.me/Star_Bots_Tamil")
+        InlineKeyboardButton('🤖 Bot Updates', url="https://t.me/Star_Bots_Tamil"),
         InlineKeyboardButton('👥 Support Group', url="https://t.me/Star_Bots_Tamil_Support"),                
-        InlineKeyboardButton('🏠 Home', callback_data='home')
+        InlineKeyboardButton('🏠 Home', callback_data='home'),
         InlineKeyboardButton('💁🏻 Help', callback_data='help'),
         InlineKeyboardButton('👨🏻‍✈️ Devloper', user_id=OWNER_ID)
         ]]
