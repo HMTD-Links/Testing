@@ -55,7 +55,7 @@ async def start(b, m):
                 [
                     [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
                     [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
-                    [InlineKeyboardButton("👨🏻‍✈️ Devloper, user_id=OWNER_ID)]
+                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
                 ]
             ),
             
@@ -110,7 +110,7 @@ async def help_handler(bot, message):
                 [
                     [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
                     [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
-                    [InlineKeyboardButton("👨🏻‍✈️ Devloper, user_id=OWNER_ID)]
+                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
                 ]
             ),
             
@@ -140,7 +140,7 @@ async def about_handler(bot, message):
                 [
                     [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
                     [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
-                    [InlineKeyboardButton("👨🏻‍✈️ Devloper, user_id=OWNER_ID)]
+                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
                 ]
             ),
             
