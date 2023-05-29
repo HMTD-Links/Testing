@@ -52,24 +52,30 @@ ABOUT_TEXT = """
 🤖 Bot Channel :- <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></i>"""
 
 START_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('💁🏻 Help', callback_data='help'),
+        [[ 
+        InlineKeyboardButton('🤖 Bot Updates', url="https://t.me/Star_Bots_Tamil"),
+        InlineKeyboardButton('👥 Support Group', url="https://t.me/Star_Bots_Tamil_Support"),                
+        InlineKeyboardButton('💁🏻 Help', callback_data='help')
         InlineKeyboardButton('About 😁', callback_data='about'),
-        InlineKeyboardButton('🚫 Close', callback_data='close')
+        InlineKeyboardButton('👨🏻‍✈️ Devloper', user_id=OWNER_ID)
         ]]
     )
 HELP_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('🏠 Home', callback_data='home'),
+        InlineKeyboardButton('🤖 Bot Updates', url="https://t.me/Star_Bots_Tamil"),
+        InlineKeyboardButton('👥 Support Group', url="https://t.me/Star_Bots_Tamil_Support"),                
+        InlineKeyboardButton('🏠 Home', callback_data='home')
         InlineKeyboardButton('About 😁', callback_data='about'),
-        InlineKeyboardButton('🚫 Close', callback_data='close')
+        InlineKeyboardButton('👨🏻‍✈️ Developer', user_id=OWNER_ID)
         ]]
     )
 ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('🏠 Home', callback_data='home'),
+        InlineKeyboardButton('🤖 Bot Updates', url="https://t.me/Star_Bots_Tamil"),
+        InlineKeyboardButton('👥 Support Group', url="https://t.me/Star_Bots_Tamil_Support"),                
+        InlineKeyboardButton('🏠 Home', callback_data='home')
         InlineKeyboardButton('💁🏻 Help', callback_data='help'),
-        InlineKeyboardButton('🚫 Close', callback_data='close')
+        InlineKeyboardButton('👨🏻‍✈️ Devloper', user_id=OWNER_ID)
         ]]
     )
 @StreamBot.on_callback_query()
