@@ -13,7 +13,7 @@ class Var(object):
     API_HASH = str(getenv('API_HASH'))
     BOT_TOKEN = str(getenv('BOT_TOKEN'))
     SESSION_NAME = str(getenv('SESSION_NAME', 'Star_Bots_Tamil'))    
-    OWNER_ID = int(getenv("OWNER_ID", "1391556668"))
+    OWNER_ID = set(int(x) for x in os.environ.get("OWNER_ID", "1391556668").split())
     API = str(getenv('API', 'd03a53149bf186ac74d58ff80d916f7a79ae5745'))
     name = str(getenv('name', 'filetolinkbot'))
     SLEEP_THRESHOLD = int(getenv('SLEEP_THRESHOLD', '60'))
