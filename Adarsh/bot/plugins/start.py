@@ -87,20 +87,23 @@ ABOUT_BUTTONS = InlineKeyboardMarkup(
 @StreamBot.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "home":
-        await update.message.edit_text(
-            text=START_TEXT.format(update.from_user.mention),
+        await update.message.edit_photo(
+            photo="https://graph.org/file/1412d9f93d77c350d8268.jpg",    
+            caption=START_TEXT.format(update.from_user.mention),
             disable_web_page_preview=True,
             reply_markup=START_BUTTONS
         )
     elif update.data == "help":
-        await update.message.edit_text(
-            text=HELP_TEXT,
+        await update.message.edit_photo(
+            photo="https://graph.org/file/1412d9f93d77c350d8268.jpg",    
+            caption=HELP_TEXT,
             disable_web_page_preview=True,
             reply_markup=HELP_BUTTONS    
         )
     elif update.data == "about":
-        await update.message.edit_text(
-            text=ABOUT_TEXT,
+        await update.message.edit_photo(
+            photo="https://graph.org/file/1412d9f93d77c350d8268.jpg",   
+            caption=ABOUT_TEXT,
             disable_web_page_preview=True,
             reply_markup=ABOUT_BUTTONS    
         )
@@ -163,8 +166,9 @@ async def start(b, m):
                     parse_mode=ParseMode.HTML,
                     disable_web_page_preview=True)
                 return
-        await m.reply_text(
-            text=START_TEXT.format(m.from_user.mention),
+        await m.reply_photo(
+            photo="https://graph.org/file/1412d9f93d77c350d8268.jpg",    
+            caption=START_TEXT.format(m.from_user.mention),
             parse_mode=ParseMode.HTML,
             disable_web_page_preview=True,
             reply_markup=START_BUTTONS    
@@ -239,8 +243,9 @@ async def start(b, m):
 
 @StreamBot.on_message(filters.private & filters.command(["about"]))
 async def start(client, message):
-    await message.reply_text(
-        text=ABOUT_TEXT.format(message.from_user.mention),
+    await message.reply_photo(
+        photo="https://graph.org/file/1412d9f93d77c350d8268.jpg",   
+        caption=ABOUT_TEXT.format(message.from_user.mention),
         disable_web_page_preview=True,
         reply_markup=ABOUT_BUTTONS    
     )
@@ -286,8 +291,9 @@ async def help_handler(bot, message):
                 disable_web_page_preview=True,
                 quote=True)
             return
-    await message.reply_text(
-        text=HELP_TEXT,
+    await message.reply_photo(
+        photo="https://graph.org/file/1412d9f93d77c350d8268.jpg",    
+        caption=HELP_TEXT,
         parse_mode=ParseMode.HTML,
         disable_web_page_preview=True,
         reply_markup=HELP_BUTTONS,
