@@ -10,8 +10,9 @@ from pyrogram.enums.parse_mode import ParseMode
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
 from Adarsh.utils.file_properties import get_name, get_hash, get_media_file_size
-db = Database(Var.DATABASE_URL, Var.name)
+db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 from pyrogram.types import ReplyKeyboardMarkup
+from pyshorteners import Shortener
 OWNER_ID = Var.OWNER_ID
 
 START_TEXT = """
@@ -46,35 +47,35 @@ ABOUT_TEXT = """
 🤖 Bot Channel :- <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></i>"""
 
 
-         START_BUTTONS=InlineKeyboardMarkup(
-                [
-                    [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
-                    [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
-                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
-                ]
-            ),
-            
-        )
+START_BUTTONS=InlineKeyboardMarkup(
+       [
+           [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
+           [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
+           [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
+       ]
+   ),
+)            
+
         
-        HELP_BUTTONS=InlineKeyboardMarkup(
-                [
-                    [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
-                    [InlineKeyboardButton("🏠 Home", callback_data='home'), InlineKeyboardButton("About 😁", callback_data='about')],
-                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
-                ]
-            ),
-            
-        )
+HELP_BUTTONS=InlineKeyboardMarkup(
+      [
+          [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
+          [InlineKeyboardButton("🏠 Home", callback_data='home'), InlineKeyboardButton("About 😁", callback_data='about')],
+          [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
+      ]
+   ),
+)            
+ 
         
-        ABOUT_BUTTONS=InlineKeyboardMarkup(
-                [
-                    [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
-                    [InlineKeyboardButton("🏠 Home", callback_data='home'), InlineKeyboardButton("💁🏻 Help", callback_data='help')],
-                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
-                ]
-            ),
-            
-        )        
+ABOUT_BUTTONS=InlineKeyboardMarkup(
+       [
+           [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
+           [InlineKeyboardButton("🏠 Home", callback_data='home'), InlineKeyboardButton("💁🏻 Help", callback_data='help')],
+           [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
+       ]
+    ),
+)            
+   
 
 @StreamBot.on_callback_query()
 async def cb_data(bot, update):
