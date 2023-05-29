@@ -272,8 +272,8 @@ async def help_handler(bot, message):
                 chat_id=message.chat.id,
                 text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
                 parse_mode=ParseMode.HTML,
-                disable_web_page_preview=True,
-                quote=True)
+                disable_web_page_preview=True
+            )
             return
     await message.reply_text(
         text=HELP_TEXT,
