@@ -90,21 +90,18 @@ async def cb_data(bot, update):
         await update.message.edit_photo(
             photo="https://graph.org/file/1412d9f93d77c350d8268.jpg",    
             caption=START_TEXT.format(update.from_user.mention),
-            disable_web_page_preview=True,
             reply_markup=START_BUTTONS
         )
     elif update.data == "help":
         await update.message.edit_photo(
             photo="https://graph.org/file/1412d9f93d77c350d8268.jpg",    
             caption=HELP_TEXT,
-            disable_web_page_preview=True,
             reply_markup=HELP_BUTTONS    
         )
     elif update.data == "about":
         await update.message.edit_photo(
             photo="https://graph.org/file/1412d9f93d77c350d8268.jpg",   
             caption=ABOUT_TEXT,
-            disable_web_page_preview=True,
             reply_markup=ABOUT_BUTTONS    
         )
     else:
@@ -144,7 +141,7 @@ async def start(b, m):
                         chat_id=m.chat.id,
                         text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m..first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/Star_Bots_Tamil_Support'>Star Bots Tamil Support</a> They will Help You.</b>",
                         parse_mode=ParseMode.HTML,
-                        disable_web_page_preview=True    
+                            
                     )
                     return
             except UserNotParticipant:
@@ -170,7 +167,6 @@ async def start(b, m):
             photo="https://graph.org/file/1412d9f93d77c350d8268.jpg",    
             caption=START_TEXT.format(m.from_user.mention),
             parse_mode=ParseMode.HTML,
-            disable_web_page_preview=True,
             reply_markup=START_BUTTONS    
             )                                                                         
                                                                                        
@@ -246,7 +242,6 @@ async def start(client, message):
     await message.reply_photo(
         photo="https://graph.org/file/1412d9f93d77c350d8268.jpg",   
         caption=ABOUT_TEXT.format(message.from_user.mention),
-        disable_web_page_preview=True,
         reply_markup=ABOUT_BUTTONS    
     )
 
@@ -295,7 +290,6 @@ async def help_handler(bot, message):
         photo="https://graph.org/file/1412d9f93d77c350d8268.jpg",    
         caption=HELP_TEXT,
         parse_mode=ParseMode.HTML,
-        disable_web_page_preview=True,
         reply_markup=HELP_BUTTONS,
         quote=True
         )
