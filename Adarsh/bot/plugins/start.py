@@ -49,9 +49,9 @@ async def start(b, m):
     usr_cmd = m.text.split("_")[-1]
     if usr_cmd == "/start":
         await m.reply_photo(
-            photo="https://telegra.ph/file/02b79fb0b8d53a2b511d9.jpg",
+            START_TEXT="https://telegra.ph/file/02b79fb0b8d53a2b511d9.jpg",
             caption="**ʜᴇʟʟᴏ...⚡\n\nɪᴀᴍ ᴀ sɪᴍᴘʟᴇ ᴛᴇʟᴇɢʀᴀᴍ ғɪʟᴇ/ᴠɪᴅᴇᴏ ᴛᴏ ᴘᴇʀᴍᴀɴᴇɴᴛ ʟɪɴᴋ ᴀɴᴅ sᴛʀᴇᴀᴍ ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴏʀ ʙᴏᴛ.**\n\n**ᴜsᴇ /help ғᴏʀ ᴍᴏʀᴇ ᴅᴇᴛsɪʟs\n\nsᴇɴᴅ ᴍᴇ ᴀɴʏ ᴠɪᴅᴇᴏ / ғɪʟᴇ ᴛᴏ sᴇᴇ ᴍʏ ᴘᴏᴡᴇʀᴢ...**",
-            reply_markup=InlineKeyboardMarkup(
+            START_BUTTONS=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
                     [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
@@ -103,10 +103,10 @@ async def help_handler(bot, message):
         )
               
     await message.reply_photo(
-            photo="https://telegra.ph/file/02b79fb0b8d53a2b511d9.jpg",
+            HELP_TEXT="https://telegra.ph/file/02b79fb0b8d53a2b511d9.jpg",
             caption="**┣⪼ sᴇɴᴅ ᴍᴇ ᴀɴʏ ғɪʟᴇ/ᴠɪᴅᴇᴏ ᴛʜᴇɴ ɪ ᴡɪʟʟ ʏᴏᴜ ᴘᴇʀᴍᴀɴᴇɴᴛ sʜᴀʀᴇᴀʙʟᴇ ʟɪɴᴋ ᴏғ ɪᴛ...\n\n┣⪼ ᴛʜɪs ʟɪɴᴋ ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴏʀ ᴛᴏ sᴛʀᴇᴀᴍ ᴜsɪɴɢ ᴇxᴛᴇʀɴᴀʟ ᴠɪᴅᴇᴏ ᴘʟᴀʏᴇʀs ᴛʜʀᴏᴜɢʜ ᴍʏ sᴇʀᴠᴇʀs.\n\n┣⪼ ғᴏʀ sᴛʀᴇᴀᴍɪɴɢ ᴊᴜsᴛ ᴄᴏᴘʏ ᴛʜᴇ ʟɪɴᴋ ᴀɴᴅ ᴘᴀsᴛᴇ ɪᴛ ɪɴ ʏᴏᴜʀ ᴠɪᴅᴇᴏ ᴘʟᴀʏᴇʀ ᴛᴏ sᴛᴀʀᴛ sᴛʀᴇᴀᴍɪɴɢ.\n\n┣⪼ ᴛʜɪs ʙᴏᴛ ɪs ᴀʟsᴏ sᴜᴘᴘᴏʀᴛ ɪɴ ᴄʜᴀɴɴᴇʟ. ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴀs ᴀᴅᴍɪɴ ᴛᴏ ɢᴇᴛ ʀᴇᴀʟᴛɪᴍᴇ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ᴇᴠᴇʀʏ ғɪʟᴇs/ᴠɪᴅᴇᴏs ᴘᴏsʏ../\n\n┣⪼ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ :- /about\n\n\nᴘʟᴇᴀsᴇ sʜᴀʀᴇ ᴀɴᴅ sᴜʙsᴄʀɪʙᴇ**", 
   
-         reply_markup=InlineKeyboardMarkup(
+         HELP_BUTTONS =InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
                     [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
@@ -126,7 +126,7 @@ async def about_handler(bot, message):
             f"<b>#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a></b>", parse_mode=ParseMode.HTML
         )
     await message.reply_photo(
-            photo="https://telegra.ph/file/02b79fb0b8d53a2b511d9.jpg",
+            ABOUT_TEXT="https://telegra.ph/file/02b79fb0b8d53a2b511d9.jpg",
             caption="""<b><i>🤖 My Name :- <a href=https://t.me/File_to_Link_Star_Bot><b>File to Link Star Bots</b></a>\n
 🧑🏻‍💻 Developer :- <a href=https://t.me/TG_Karthik><b>Karthik</b></a>\n
 📝 Language :- Python3\n
@@ -136,7 +136,7 @@ async def about_handler(bot, message):
 🤖 Bot Channel :- <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></i>""",
   
         
-        reply_markup=InlineKeyboardMarkup(
+        ABOUT_BUTTONS=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
                     [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
