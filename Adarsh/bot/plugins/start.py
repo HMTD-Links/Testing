@@ -238,12 +238,11 @@ async def start(b, m):
 
 
 @StreamBot.on_message(filters.private & filters.command(["about"]))
-async def start(client, m: message):
+async def start(client, message):
     await m.reply_text(
         text=ABOUT_TEXT.format(m.from_user.mention),
         disable_web_page_preview=True,
-        reply_markup=ABOUT_BUTTONS,
-        quote=True    
+        reply_markup=ABOUT_BUTTONS    
     )
 
 
