@@ -14,6 +14,68 @@ db = Database(Var.DATABASE_URL, Var.name)
 from pyrogram.types import ReplyKeyboardMarkup
 OWNER_ID = Var.OWNER_ID
 
+START_TEXT = """
+<b><i>Hello 👋🏻</i> {},\n
+I'm Star Bots Tamil's Official File to Link Bot (Link Generator Bot). Maintained By :- <a href='https://t.me/Star_Bots_Tamil'>Star Bots Tamil</a>.\n
+Click on /help to Get More Information.\n
+Warning 🚸\n
+🔞 Porn Contents Leads to Permanent Ban You. Check "About 😁"</b>"""
+
+HELP_TEXT = """
+<b>➠ Send Me Any Type of Documents From Telegram.
+➠ I will Provide Permanent Direct Download Link, Watch / Stream Link & Shortened Link !
+➠ Add me in Your Channel For Direct Download Link Button
+➠ This Permanent Link with Fastest Download Speed.
+➠ You Can Short Generated Link.\n
+Available Commands\n
+● /start - Check if 😊 I'm Alive
+● /help - How to Use❓
+● /about - to Know About Me 😌
+● /short - Use This Command with Bot Generated Link 🔗 to Get Shorted Links 🔗
+Example :- <code>/short https://t.me/Star_Bots_Tamil</code>\n
+Warning ⚠️\n
+🔞 Porn Contents Leads to Permanent Ban You.</b>"""
+
+ABOUT_TEXT = """
+<b><i>🤖 My Name :- <a href=https://t.me/File_to_Link_Star_Bot><b>File to Link Star Bots</b></a>\n
+🧑🏻‍💻 Developer :- <a href=https://t.me/TG_Karthik><b>Karthik</b></a>\n
+📝 Language :- Python3\n
+📚 Framework :- Pyrogram\n
+📡 Hosted on :- VPS\n
+🎥 Movie Updates :- <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>\n
+🤖 Bot Channel :- <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></i>"""
+
+
+         START_BUTTONS=InlineKeyboardMarkup(
+                [
+                    [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
+                    [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
+                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
+                ]
+            ),
+            
+        )
+        
+        HELP_BUTTONS=InlineKeyboardMarkup(
+                [
+                    [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
+                    [InlineKeyboardButton("🏠 Home", callback_data='home'), InlineKeyboardButton("About 😁", callback_data='about')],
+                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
+                ]
+            ),
+            
+        )
+        
+        ABOUT_BUTTONS=InlineKeyboardMarkup(
+                [
+                    [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
+                    [InlineKeyboardButton("🏠 Home", callback_data='home'), InlineKeyboardButton("💁🏻 Help", callback_data='help')],
+                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
+                ]
+            ),
+            
+        )        
+
 @StreamBot.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "home":
@@ -48,49 +110,117 @@ async def start(b, m):
         )
     usr_cmd = m.text.split("_")[-1]
     if usr_cmd == "/start":
-        await m.reply_photo(
-            START_TEXT="https://telegra.ph/file/02b79fb0b8d53a2b511d9.jpg",
-            caption="**ʜᴇʟʟᴏ...⚡\n\nɪᴀᴍ ᴀ sɪᴍᴘʟᴇ ᴛᴇʟᴇɢʀᴀᴍ ғɪʟᴇ/ᴠɪᴅᴇᴏ ᴛᴏ ᴘᴇʀᴍᴀɴᴇɴᴛ ʟɪɴᴋ ᴀɴᴅ sᴛʀᴇᴀᴍ ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴏʀ ʙᴏᴛ.**\n\n**ᴜsᴇ /help ғᴏʀ ᴍᴏʀᴇ ᴅᴇᴛsɪʟs\n\nsᴇɴᴅ ᴍᴇ ᴀɴʏ ᴠɪᴅᴇᴏ / ғɪʟᴇ ᴛᴏ sᴇᴇ ᴍʏ ᴘᴏᴡᴇʀᴢ...**",
-            START_BUTTONS=InlineKeyboardMarkup(
-                [
-                    [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
-                    [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
-                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
-                ]
-            ),
-            
-        )
+        if Var.UPDATES_CHANNEL != "None":
+            try:
+                user = await b.get_chat_member(Var.UPDATES_CHANNEL, m.chat.id)
+                if user.status == "kicked":
+                    await b.send_message(
+                        chat_id=m.chat.id,
+                        text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m..first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/Star_Bots_Tamil_Support'>Star Bots Tamil Support</a> They will Help You.</b>",
+                        parse_mode=ParseMode.HTML,
+                        disable_web_page_preview=True    
+                    )
+                    return
+            except UserNotParticipant:
+                await b.send_message(
+                    chat_id=m.chat.id,
+                    text="<b>Please Join Our Updates Channel to Use Me❗\n\nDue To Overload, Only Channel Subscribers Can Use to Me❗.</b>",
+                    reply_markup=InlineKeyboardMarkup(
+                        [[
+                            InlineKeyboardButton("🤖 Join Our Bot Channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
+                            ]]
+                    ),
+                    parse_mode=ParseMode.HTML
+                )
+                return
+            except Exception:
+                await b.send_message(
+                    chat_id=m.chat.id,
+                    text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
+                    parse_mode=ParseMode.HTML,
+                    disable_web_page_preview=True)
+                return
+        await m.reply_text(
+            text=START_TEXT.format(m.from_user.mention),
+            parse_mode=ParseMode.HTML,
+            disable_web_page_preview=True,
+            reply_markup=START_BUTTONS,
+            quote=True    
+              )                                                                         
+                                                                                       
+                                                                            
     else:
+        if Var.UPDATES_CHANNEL != "None":
+            try:
+                user = await b.get_chat_member(Var.UPDATES_CHANNEL, m.chat.id)
+                if user.status == "kicked":
+                    await b.send_message(
+                        chat_id=m.chat.id,
+                        text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m..first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/Star_Bots_Tamil_Support'>Star Bots Tamil Support</a> They will Help You.</b>",
+                        parse_mode=ParseMode.HTML,
+                        disable_web_page_preview=True
+                    )
+                    return
+            except UserNotParticipant:
+                await b.send_message(
+                    chat_id=m.chat.id,
+                    text="<b>Please Join Our Updates Channel to Use Me❗\n\nDue To Overload, Only Channel Subscribers Can Use to Me❗.</b>",
+                    reply_markup=InlineKeyboardMarkup(
+                        [[
+                          InlineKeyboardButton("🤖 Join Our Bot Channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}")],
+                         [InlineKeyboardButton("🔄 Refresh / Try Again", url=f"https://t.me/{(await b.get_me()).username}?start=Star_Bots_Tamil_{usr_cmd}")
+                        
+                        ]]
+                    ),
+                    parse_mode=ParseMode.HTML
+                )
+                return
+            except Exception:
+                await b.send_message(
+                    chat_id=m.chat.id,
+                    text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
+                    parse_mode=ParseMode.HTML,
+                    disable_web_page_preview=True)
+                return
 
-        get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, ids=int(usr_cmd))
-
-        file_size = None
-        if get_msg.video:
-            file_size = f"{humanbytes(get_msg.video.file_size)}"
-        elif get_msg.document:
-            file_size = f"{humanbytes(get_msg.document.file_size)}"
-        elif get_msg.audio:
-            file_size = f"{humanbytes(get_msg.audio.file_size)}"
-
-        file_name = None
-        if get_msg.video:
-            file_name = f"{get_msg.video.file_name}"
-        elif get_msg.document:
-            file_name = f"{get_msg.document.file_name}"
-        elif get_msg.audio:
-            file_name = f"{get_msg.audio.file_name}"
-
-        stream_link = "https://{}/{}".format(Var.FQDN, get_msg.id) if Var.ON_HEROKU or Var.NO_PORT else \
-            "http://{}:{}/{}".format(Var.FQDN,
+        get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, message_ids=int(usr_cmd))
+        file_name = get_media_file_name(get_msg)
+        file_hash = get_hash(get_msg, Var.HASH_LENGTH)
+        stream_link = "https://{}/{}/{}?hash={}".format(Var.FQDN, get_msg.id, file_name, file_hash) if Var.ON_HEROKU or Var.NO_PORT else \
+            "http://{}:{}/{}/{}?hash={}".format(Var.FQDN,
                                      Var.PORT,
-                                     get_msg.id)
+                                     get_msg.id,
+                                     file_name,
+                                     file_hash)
+        file_name = get_name(get_msg)
+        file_size = humanbytes(get_media_file_size(get_msg))
+        file_caption = get_msg.caption
+        shortened_link = await get_shortlink(stream_link)
+        
+        msg_text ="""
+<b>Your Link is Generated... ⚡\n
+📁 File Name :- {}\n
+📦 File Size :- {}\n
+🔠 File Captain :- {}\n
+📥 Fast Download Link :- {}\n
+❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n
+©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
 
-        msg_text = "**ᴛᴏᴜʀ ʟɪɴᴋ ɪs ɢᴇɴᴇʀᴀᴛᴇᴅ...⚡\n\n📧 ғɪʟᴇ ɴᴀᴍᴇ :-\n{}\n {}\n\n💌 ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ :- {}\n\n♻️ ᴛʜɪs ʟɪɴᴋ ɪs ᴘᴇʀᴍᴀɴᴇɴᴛ ᴀɴᴅ ᴡᴏɴ'ᴛ ɢᴇᴛ ᴇxᴘɪʀᴇᴅ ♻️\n\n<b>❖ YouTube.com/@itzjeol</b>**"
-        await m.reply_text(            
-            text=msg_text.format(file_name, file_size, stream_link),
-            
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡ ᴅᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ ⚡", url=stream_link)]])
+
+        await m.reply_text(
+            text=msg_text.format(file_name, file_size, file_caption, shortened_link),
+            parse_mode=ParseMode.HTML, quote=True,
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Fast Download Link", url=shortened_link)], [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil")], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]])
         )
+        
+@StreamBot.on_message(filters.private & filters.command(["about"]))
+async def start(client, message):
+    await message.reply_text(
+        text=ABOUT_TEXT.format(message.from_user.mention),
+        disable_web_page_preview=True,
+        reply_markup=ABOUT_BUTTONS,
+        quote=True    
+    )
 
 
 @StreamBot.on_message(filters.command('help') & filters.private)
@@ -99,49 +229,44 @@ async def help_handler(bot, message):
         await db.add_user(message.from_user.id)
         await bot.send_message(
             Var.LOG_CHANNEL,
-            f"<b>#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a></b>", parse_mode=ParseMode.HTML
+            f"<b>#New_User\n\n᚛›Name :- <a href='tg://user?id={m.from_user.id}'>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot><b>File to Link Star Bots</b></a></b>"
         )
-              
-    await message.reply_photo(
-            HELP_TEXT="https://telegra.ph/file/02b79fb0b8d53a2b511d9.jpg",
-            caption="**┣⪼ sᴇɴᴅ ᴍᴇ ᴀɴʏ ғɪʟᴇ/ᴠɪᴅᴇᴏ ᴛʜᴇɴ ɪ ᴡɪʟʟ ʏᴏᴜ ᴘᴇʀᴍᴀɴᴇɴᴛ sʜᴀʀᴇᴀʙʟᴇ ʟɪɴᴋ ᴏғ ɪᴛ...\n\n┣⪼ ᴛʜɪs ʟɪɴᴋ ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴏʀ ᴛᴏ sᴛʀᴇᴀᴍ ᴜsɪɴɢ ᴇxᴛᴇʀɴᴀʟ ᴠɪᴅᴇᴏ ᴘʟᴀʏᴇʀs ᴛʜʀᴏᴜɢʜ ᴍʏ sᴇʀᴠᴇʀs.\n\n┣⪼ ғᴏʀ sᴛʀᴇᴀᴍɪɴɢ ᴊᴜsᴛ ᴄᴏᴘʏ ᴛʜᴇ ʟɪɴᴋ ᴀɴᴅ ᴘᴀsᴛᴇ ɪᴛ ɪɴ ʏᴏᴜʀ ᴠɪᴅᴇᴏ ᴘʟᴀʏᴇʀ ᴛᴏ sᴛᴀʀᴛ sᴛʀᴇᴀᴍɪɴɢ.\n\n┣⪼ ᴛʜɪs ʙᴏᴛ ɪs ᴀʟsᴏ sᴜᴘᴘᴏʀᴛ ɪɴ ᴄʜᴀɴɴᴇʟ. ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴀs ᴀᴅᴍɪɴ ᴛᴏ ɢᴇᴛ ʀᴇᴀʟᴛɪᴍᴇ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ᴇᴠᴇʀʏ ғɪʟᴇs/ᴠɪᴅᴇᴏs ᴘᴏsʏ../\n\n┣⪼ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ :- /about\n\n\nᴘʟᴇᴀsᴇ sʜᴀʀᴇ ᴀɴᴅ sᴜʙsᴄʀɪʙᴇ**", 
-  
-         HELP_BUTTONS =InlineKeyboardMarkup(
-                [
-                    [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
-                    [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
-                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
-                ]
-            ),
-            
-        )       
-
-
-@StreamBot.on_message(filters.command('about') & filters.private)
-async def about_handler(bot, message):
-    if not await db.is_user_exist(message.from_user.id):
-        await db.add_user(message.from_user.id)
-        await bot.send_message(
-            Var.LOG_CHANNEL,
-            f"<b>#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a></b>", parse_mode=ParseMode.HTML
-        )
-    await message.reply_photo(
-            ABOUT_TEXT="https://telegra.ph/file/02b79fb0b8d53a2b511d9.jpg",
-            caption="""<b><i>🤖 My Name :- <a href=https://t.me/File_to_Link_Star_Bot><b>File to Link Star Bots</b></a>\n
-🧑🏻‍💻 Developer :- <a href=https://t.me/TG_Karthik><b>Karthik</b></a>\n
-📝 Language :- Python3\n
-📚 Framework :- Pyrogram\n
-📡 Hosted on :- VPS\n
-🎥 Movie Updates :- <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>\n
-🤖 Bot Channel :- <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></i>""",
-  
-        
-        ABOUT_BUTTONS=InlineKeyboardMarkup(
-                [
-                    [InlineKeyboardButton("⚡ Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("⚡ SUPPORT ⚡", url="https://t.me/beta_support")],
-                    [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
-                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
-                ]
-            ),
-            
-        )
+    if Var.UPDATES_CHANNEL is not None:
+        try:
+            user = await bot.get_chat_member(Var.UPDATES_CHANNEL, message.chat.id)
+            if user.status == "kicked":
+                await bot.send_message(
+                    chat_id=message.chat.id,
+                    text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/Star_Bots_Tamil_Support'>Star Bots Tamil Support</a> They will Help You.</b>",
+                    parse_mode=ParseMode.HTML,
+                    disable_web_page_preview=True,
+                    quote=True
+                )
+                return
+        except UserNotParticipant:
+            await bot.send_message(
+                chat_id=message.chat.id,
+                text="<b>Please Join Our Updates Channel to Use Me❗\n\nDue To Overload, Only Channel Subscribers Can Use to Me❗.</b>",
+                reply_markup=InlineKeyboardMarkup(
+                    [[
+                        InlineKeyboardButton("🤖 Join Our Bot Channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
+                        ]]
+                ),
+                parse_mode=ParseMode.HTML
+            )
+            return
+        except Exception:
+            await bot.send_message(
+                chat_id=message.chat.id,
+                text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
+                parse_mode=ParseMode.HTML,
+                disable_web_page_preview=True,
+                quote=True)
+            return
+    await message.reply_text(
+        text=HELP_TEXT,
+        parse_mode=ParseMode.HTML,
+        disable_web_page_preview=True,
+        reply_markup=HELP_BUTTONS,
+        quote=True
+        )        
