@@ -20,7 +20,7 @@ async def start(b, m):
         await db.add_user(m.from_user.id)
         await b.send_message(
             Var.LOG_CHANNEL,
-            f"**#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a>**"
+            f"<b>#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a></b>", parse_mode=ParseMode.HTML
         )
     usr_cmd = m.text.split("_")[-1]
     if usr_cmd == "/start":
@@ -31,7 +31,7 @@ async def start(b, m):
                 [
                     [InlineKeyboardButton("🤖 Bot Channel", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("👥 Support Group", url="https://t.me/Star_Bots_Tamil_Support")],
                     [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil"), InlineKeyboardButton("🤖 Our Bots", url="https://t.me/Star_Bots_Tamil/37")],
-                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
+                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", url="https://t.me/TG_Karthik")]
                 ]
             ),
             
@@ -75,7 +75,7 @@ async def help_handler(bot, message):
         await db.add_user(message.from_user.id)
         await bot.send_message(
             Var.LOG_CHANNEL,
-            f"**#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a>**"
+            f"<b>#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a></b>", parse_mode=ParseMode.HTML
         )
               
     await message.reply_photo(
@@ -87,7 +87,7 @@ async def help_handler(bot, message):
                 [
                     [InlineKeyboardButton("🤖 Bot Channel", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("👥 Support Group", url="https://t.me/Star_Bots_Tamil_Support")],
                     [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil"), InlineKeyboardButton("🤖 Our Bots", url="https://t.me/Star_Bots_Tamil/37")],
-                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
+                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", url="https://t.me/TG_Karthik")]
                 ]
             ),
             
@@ -99,7 +99,7 @@ async def about_handler(bot, message):
         await db.add_user(message.from_user.id)
         await bot.send_message(
             Var.LOG_CHANNEL,
-            f"**#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a>**"
+            f"<b>#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a></b>", parse_mode=ParseMode.HTML
         )
     await message.reply_photo(
             photo="https://graph.org/file/9853637eaaf2654ccd503.jpg",
@@ -122,7 +122,7 @@ async def about_handler(bot, message):
                 [
                     [InlineKeyboardButton("🤖 Bot Channel", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("👥 Support Group", url="https://t.me/Star_Bots_Tamil_Support")],
                     [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil"), InlineKeyboardButton("🤖 Our Bots", url="https://t.me/Star_Bots_Tamil/37")],
-                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
+                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", url="https://t.me/TG_Karthik")]
                 ]
             ),
             
