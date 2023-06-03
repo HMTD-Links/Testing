@@ -30,7 +30,7 @@ async def start(b, m):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton("🤖 Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("👥 Support Group", url="https://t.me/Star_Bots_Tamil_Support")],
-                    [InlineKeyboardButton("💁🏻 Help", callback_data='help'), InlineKeyboardButton("About 😁", callback_data='about')],
+                    [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil"), InlineKeyboardButton("🤖 Our Bots", url="https://t.me/Star_Bots_Tamil/37")],
                     [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
                 ]
             ),
@@ -86,7 +86,7 @@ async def help_handler(bot, message):
         reply_markup=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton("🤖 Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("👥 Support Group", url="https://t.me/Star_Bots_Tamil_Support")],
-                    [InlineKeyboardButton("🏠 Home", callback_data='home'), InlineKeyboardButton("About 😁", callback_data='about')],
+                    [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil"), InlineKeyboardButton("🤖 Our Bots", url="https://t.me/Star_Bots_Tamil/37")],
                     [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
                 ]
             ),
@@ -114,7 +114,7 @@ async def about_handler(bot, message):
         reply_markup=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton("🤖 Bot Updates", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("👥 Support Group", url="https://t.me/Star_Bots_Tamil_Support")],
-                    [InlineKeyboardButton("🏠 Home", callback_data='home'), InlineKeyboardButton("💁🏻 Help", callback_data='help')],
+                    [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil"), InlineKeyboardButton("🤖 Our Bots", url="https://t.me/Star_Bots_Tamil/37")],
                     [InlineKeyboardButton("👨🏻‍✈️ Devloper", user_id=OWNER_ID)]
                 ]
             ),
