@@ -13,12 +13,11 @@ from Adarsh.vars import Var
 from urllib.parse import quote_plus
 from Adarsh.utils.database import Database
 from Adarsh.bot import StreamBot
-from Adarsh.utils.file_properties import get_hash, get_name
 from pyrogram.enums.parse_mode import ParseMode
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.enums.parse_mode import ParseMode
 from Adarsh.utils.human_readable import humanbytes
-from Adarsh.utils.file_properties import get_name, get_media_file_size
+from Adarsh.utils.file_properties import get_name, get_media_file_size, get_hash
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyshorteners import Shortener
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
