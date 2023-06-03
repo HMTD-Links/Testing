@@ -192,19 +192,19 @@ async def about_handler(bot, message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id)
         await bot.send_message(
-            Var.BIN_CHANNEL,
-            f"#NEW_USER: \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id}) Started !!"
+            Var.LOG_CHANNEL,
+            f"<b>#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a></b>", parse_mode=ParseMode.HTML
         )
     await message.reply_photo(
-            photo="https://graph.org/file/8e67ae4a3803f69a28218.jpg",
-            caption="""<b><i>🤖 My Name :- <a href=https://t.me/File_to_Link_Star_Bot><b>File to Link Star Bots</b></a>\n
-🧑🏻‍💻 Developer :- <a href=https://t.me/TG_Karthik><b>Karthik</b></a>\n
+            photo="https://graph.org/file/9853637eaaf2654ccd503.jpg",
+            caption="""<b>🤖 My Name :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a>\n
+🧑🏻‍💻 Developer :- <a href=https://t.me/TG_Karthik>Karthik</a>\n
 📝 Language :- Python3\n
 📚 Framework :- Pyrogram\n
 📡 Hosted on :- VPS\n
 💾 Database :- <a href=https://www.mongodb.com/>Mongo DB</a>\n
-🎥 Movie Updates :- <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>\n
-🤖 Bot Channel :- <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></i> """,
+🎥 Movie Updates :- <a href=https://t.me/Star_Moviess_Tamil>Star Movies Tamil</a>\n
+🤖 Bot Channel :- <a href=https://t.me/Star_Bots_Tamil>Star Bots Tamil</a></b>""",
         
         reply_markup=InlineKeyboardMarkup(
                 [
