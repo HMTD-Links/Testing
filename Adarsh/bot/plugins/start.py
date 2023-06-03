@@ -73,7 +73,7 @@ async def start(b, m):
                 return
         await m.reply_photo(
             photo="https://graph.org/file/9853637eaaf2654ccd503.jpg",
-            mention = m.from_user.mention
+            mention = m.from_user.mention,
             caption="""**Hello 👋🏻 {mention},\n
 I'm Star Bots Tamil's Official File to Link Bot (Link Generator Bot). Maintained By :- <a href='https://t.me/Star_Bots_Tamil'>Star Bots Tamil</a>.\n
 Click on /help to Get More Information.\n
