@@ -73,7 +73,8 @@ async def start(b, m):
                 return
         await m.reply_photo(
             photo="https://graph.org/file/9853637eaaf2654ccd503.jpg",
-            caption="""**Hello 👋🏻 {m.from_user.mention},\n
+            mention = m.from_user.mention
+            caption="""**Hello 👋🏻 {mention},\n
 I'm Star Bots Tamil's Official File to Link Bot (Link Generator Bot). Maintained By :- <a href='https://t.me/Star_Bots_Tamil'>Star Bots Tamil</a>.\n
 Click on /help to Get More Information.\n
 Warning 🚸\n
@@ -198,7 +199,7 @@ async def about_handler(bot, message):
     await message.reply_photo(
             photo="https://graph.org/file/9853637eaaf2654ccd503.jpg",
             caption="""<b>🤖 My Name :- <a href=https://t.me/File_to_Link_Star_Bot><b>File to Link Star Bots</b></a>\n
-🧑🏻‍💻 Developer :- <a href='tg://user?id={OWNER_ID}'><b>Karthik</b></a>\n
+🧑🏻‍💻 Developer :- <a href=https://t.me/TG_Karthik><b>Karthik</b></a>\n
 📝 Language :- Python3\n
 📚 Framework :- Pyrogram\n
 📡 Hosted on :- VPS\n
