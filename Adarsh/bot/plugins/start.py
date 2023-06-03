@@ -72,14 +72,21 @@ async def start(b, m):
                     disable_web_page_preview=True)
                 return
         await m.reply_photo(
-            text=START_TEXT.format(m.from_user.mention),
-            parse_mode=ParseMode.HTML,
-            disable_web_page_preview=True,
-            reply_markup=START_BUTTONS,
-            quote=True    
-              )                                                                         
-                                                                                       
-                                                                            
+            photo="https://graph.org/file/9853637eaaf2654ccd503.jpg",
+            caption="""**Hello 👋🏻 {m.from_user.mention},\n
+I'm Star Bots Tamil's Official File to Link Bot (Link Generator Bot). Maintained By :- <a href='https://t.me/Star_Bots_Tamil'>Star Bots Tamil</a>.\n
+Click on /help to Get More Information.\n
+Warning 🚸\n
+🔞 Porn Contents Leads to Permanent Ban You. Check "About 😁"**""",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [InlineKeyboardButton("🤖 Bot Channel", url="https://t.me/Star_Bots_Tamil"), InlineKeyboardButton("👥 Support Group", url="https://t.me/Star_Bots_Tamil_Support")],
+                    [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil"), InlineKeyboardButton("🤖 Our Bots", url="https://t.me/Star_Bots_Tamil/37")],
+                    [InlineKeyboardButton("👨🏻‍✈️ Devloper", url="https://t.me/TG_Karthik")]
+                ]
+            ),
+            
+        )          
     else:
         if Var.UPDATES_CHANNEL != "None":
             try:
