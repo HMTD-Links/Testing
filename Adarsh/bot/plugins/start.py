@@ -1,5 +1,6 @@
 from Adarsh.bot import StreamBot
 from Adarsh.vars import Var
+import urllib.parse
 import logging
 logger = logging.getLogger(__name__)
 from Adarsh.bot.plugins.stream import MY_PASS
