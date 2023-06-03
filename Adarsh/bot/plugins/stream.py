@@ -12,7 +12,7 @@ from pyrogram import filters, errors, Client, enums
 from Adarsh.vars import Var
 from urllib.parse import quote_plus
 from Adarsh.utils.database import Database
-from Adarsh.bot import StreamBot, logger
+from Adarsh.bot import StreamBot
 from Adarsh.utils.file_properties import get_hash, get_name
 from pyrogram.enums.parse_mode import ParseMode
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
