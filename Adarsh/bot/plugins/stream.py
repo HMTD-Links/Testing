@@ -23,6 +23,11 @@ from pyrogram.errors import FloodWait, UserNotParticipant
 from pyshorteners import Shortener
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
+MY_PASS = os.environ.get("MY_PASS", None)
+pass_dict = {}
+pass_db = Database(Var.DATABASE_URL, "ag_passwords")
+
+
 async def get_shortlink(link):
     url = 'https://tnshort.net/api'
     params = {'api': "d03a53149bf186ac74d58ff80d916f7a79ae5745", 'url': link}
