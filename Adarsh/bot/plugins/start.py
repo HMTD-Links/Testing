@@ -124,7 +124,7 @@ Warning 🚸\n
 
         get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, message_ids=int(usr_cmd))
         file_name = get_media_file_name(get_msg)
-        file_hash = get_hash(get_msg, Var.HASH_LENGTH)
+        file_hash = get_hash(get_msg)
         stream_link = "https://{}/{}/{}?hash={}".format(Var.FQDN, get_msg.id, file_name, file_hash) if Var.ON_HEROKU or Var.NO_PORT else \
             "http://{}:{}/{}/{}?hash={}".format(Var.FQDN,
                                      Var.PORT,
