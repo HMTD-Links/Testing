@@ -14,7 +14,7 @@ from Adarsh.utils.file_properties import get_name, get_hash, get_media_file_size
 db = Database(Var.DATABASE_URL, Var.name)
 from pyrogram.types import ReplyKeyboardMarkup
 OWNER_ID = Var.OWNER_ID
-from WebStreamer.bot.plugins.stream import get_shortlink                     
+from Adarsh.bot.plugins.stream import get_shortlink                     
 
 def get_media_file_size(m):
     media = m.video or m.audio or m.document
