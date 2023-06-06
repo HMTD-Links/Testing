@@ -1,5 +1,6 @@
 import os
 import aiohttp
+from Adarsh.bot import StreamBot
 from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultArticle, InputTextMessageContent
 from pyrogram.handlers import MessageHandler
@@ -24,7 +25,7 @@ reply_markup = InlineKeyboardMarkup(
         ]]
     )
 
-@Client.on_message(filters.command(["short"]) & filters.regex(r'https?://[^\s]+'))
+@StreamBot.on_message(filters.command(["short"]) & filters.regex(r'https?://[^\s]+'))
 async def reply_shortens(bot, update):
     message = await update.reply_text(
         text="**Analysing Your Link...**",
