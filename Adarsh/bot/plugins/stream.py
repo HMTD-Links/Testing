@@ -62,27 +62,44 @@ async def private_receive_handler(c: Client, m: Message):
         await db.add_user(m.from_user.id)
         await c.send_message(
             Var.LOG_CHANNEL,
-            f"New User Joined! : \n\n Name : [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Started Your Bot!!"
+            f"<b>#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a></b>", parse_mode=ParseMode.HTML
         )
     try:
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-        online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-       
-        msg_text ="""<i><u>𝗬𝗼𝘂𝗿 𝗟𝗶𝗻𝗸 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 !</u></i>\n\n<b>📂 Fɪʟᴇ ɴᴀᴍᴇ :</b> <i>{}</i>\n\n<b>📦 Fɪʟᴇ ꜱɪᴢᴇ :</b> <i>{}</i>\n\n<b>📥 Dᴏᴡɴʟᴏᴀᴅ :</b> <i>{}</i>\n\n<b> 🖥WATCH  :</b> <i>{}</i>\n\n<b>🚸 Nᴏᴛᴇ : LINK WON'T EXPIRE TILL I DELETE</b>"""
+        file_name = get_media_file_name(m)
+        file_hash = get_hash(log_msg, Var.HASH_LENGTH)
+        stream_link = "https://{}/{}/{}?hash={}".format(Var.FQDN, log_msg.id, file_name, file_hash) if Var.ON_HEROKU or Var.NO_PORT else \
+            "http://{}:{}/{}/{}?hash={}".format(Var.FQDN,
+                                    Var.PORT,
+                                    log_msg.id,
+                                    file_name,
+                                    file_hash)
+        watch_link = "https://{}/Watch/{}/{}?hash={}".format(Var.FQDN, log_msg.id, file_name, file_hash) if Var.ON_HEROKU or Var.NO_PORT else \
+            "http://{}:{}/Watch/{}/{}?hash={}".format(Var.FQDN,
+                                    Var.PORT,
+                                    log_msg.id,
+                                    file_name,
+                                    file_hash)
+        file_hash = get_hash(log_msg, Var.HASH_LENGTH)
+        file_name = get_name(log_msg)
+        file_size = humanbytes(get_media_file_size(m))
+        file_caption = m.caption
+        shortened_stream_link = await get_shortlink(stream_link)
+        shortened_watch_link = await get_shortlink(watch_link)       
+        msg_text ="""<b>Your Link is Generated... ⚡\n\n📁 File Name :- {}\n\n📦 File Size :- {}\n\n🔠 File Captain :- {}\n\n📥 Fast Download Link :- {}\n\n🖥 Watch Link :- {}\n\n❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n\n©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
 
-        await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Stream ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True,  quote=True)
+        await log_msg.reply_text(text=f"<b>Request By :- <a href='tg://user?id={m.from_user.id}'>{m.from_user.first_name}</a>\nID :- <code>{m.from_user.id}</code>\n📥 Download Link :- {stream_link}</b>", disable_web_page_preview=True, parse_mode=ParseMode.HTML, quote=True)
         await m.reply_text(
-            text=msg_text.format(get_name(log_msg), humanbytes(get_media_file_size(m)), online_link, stream_link),
+            text=msg_text.format(file_name, file_size, file_caption, shortened_stream_link, shortened_watch_link),
             quote=True,
             disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("◉ sᴛʀᴇᴀᴍ ◉", url=stream_link), #Stream Link
-                                                InlineKeyboardButton('● ᴅᴏᴡɴʟᴏᴀᴅ ●', url=online_link)]]) #Download Link
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Fast Download Link", url=shortened_stream_link), #Download Link
+                                                InlineKeyboardButton('🖥 Watch Link', url=shortened_watch_link)]]) #Stream Link
         )
     except FloodWait as e:
         print(f"Sleeping for {str(e.x)}s")
         await asyncio.sleep(e.x)
-        await c.send_message(chat_id=Var.BIN_CHANNEL, text=f"Gᴏᴛ FʟᴏᴏᴅWᴀɪᴛ ᴏғ {str(e.x)}s from [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\n**𝚄𝚜𝚎𝚛 𝙸𝙳 :** `{str(m.from_user.id)}`", disable_web_page_preview=True)
+        await c.send_message(chat_id=Var.BIN_CHANNEL, text=f"<b>Got FloodWait of {str(e.x)}s from <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n\nUser ID :- <code>{str(m.from_user.id)}</code></b>", disable_web_page_preview=True, parse_mode=ParseMode.HTML)
 
 
 @StreamBot.on_message(
