@@ -68,29 +68,18 @@ async def private_receive_handler(c: Client, m: Message):
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
         file_name = get_media_file_name(m)
         file_hash = get_hash(log_msg)
-        stream_link = "https://{}/{}/{}?hash={}".format(Var.FQDN, log_msg.id, file_name, file_hash) if Var.ON_HEROKU or Var.NO_PORT else \
-            "http://{}:{}/{}/{}?hash={}".format(Var.FQDN,
-                                    Var.PORT,
-                                    log_msg.id,
-                                    file_name,
-                                    file_hash)
-        watch_link = "https://{}/Watch/{}/{}?hash={}".format(Var.FQDN, log_msg.id, file_name, file_hash) if Var.ON_HEROKU or Var.NO_PORT else \
-            "http://{}:{}/Watch/{}/{}?hash={}".format(Var.FQDN,
-                                    Var.PORT,
-                                    log_msg.id,
-                                    file_name,
-                                    file_hash)
-        file_hash = get_hash(log_msg)
-        file_name = get_name(log_msg)
+        watch_link = f"{Var.URL}Watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+        stream_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
         file_size = humanbytes(get_media_file_size(m))
         file_caption = m.caption
         shortened_stream_link = await get_shortlink(stream_link)
-        shortened_watch_link = await get_shortlink(watch_link)       
+        shortened_watch_link = await get_shortlink(watch_link)
+        
         msg_text ="""<b>Your Link is Generated... ⚡\n\n📁 File Name :- {}\n\n📦 File Size :- {}\n\n🔠 File Captain :- {}\n\n📥 Fast Download Link :- {}\n\n🖥 Watch Link :- {}\n\n❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n\n©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
 
         await log_msg.reply_text(text=f"<b>Request By :- <a href='tg://user?id={m.from_user.id}'>{m.from_user.first_name}</a>\nID :- <code>{m.from_user.id}</code>\n📥 Download Link :- {stream_link}</b>", disable_web_page_preview=True, parse_mode=ParseMode.HTML, quote=True)
         await m.reply_text(
-            text=msg_text.format(file_name, file_size, stream_link),
+            text=msg_text.format(get_name(log_msg), humanbytes(get_media_file_size(m)), m.caption, stream_link, watch_link),
             quote=True,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Fast Download Link", url=stream_link), #Download Link
