@@ -122,7 +122,7 @@ Warning 🚸\n
                     disable_web_page_preview=True)
                 return
             
-        get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, ids=int(usr_cmd))
+        get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, message_ids=int(usr_cmd))
 
         file_size = None
         if get_msg.video:
