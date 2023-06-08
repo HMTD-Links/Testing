@@ -121,35 +121,35 @@ Warning 🚸\n
                     parse_mode=ParseMode.HTML,
                     disable_web_page_preview=True)
                 return
+            
+        get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, ids=int(usr_cmd))
 
-        get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, message_ids=int(usr_cmd))
-        file_name = get_media_file_name(get_msg)
-        file_hash = get_hash(get_msg)
-        stream_link = "https://{}/{}/{}?hash={}".format(Var.FQDN, get_msg.id, file_name, file_hash) if Var.ON_HEROKU or Var.NO_PORT else \
-            "http://{}:{}/{}/{}?hash={}".format(Var.FQDN,
+        file_size = None
+        if get_msg.video:
+            file_size = f"{humanbytes(get_msg.video.file_size)}"
+        elif get_msg.document:
+            file_size = f"{humanbytes(get_msg.document.file_size)}"
+        elif get_msg.audio:
+            file_size = f"{humanbytes(get_msg.audio.file_size)}"
+
+        file_name = None
+        if get_msg.video:
+            file_name = f"{get_msg.video.file_name}"
+        elif get_msg.document:
+            file_name = f"{get_msg.document.file_name}"
+        elif get_msg.audio:
+            file_name = f"{get_msg.audio.file_name}"
+
+        stream_link = "https://{}/{}".format(Var.FQDN, get_msg.id) if Var.ON_HEROKU or Var.NO_PORT else \
+            "http://{}:{}/{}".format(Var.FQDN,
                                      Var.PORT,
-                                     get_msg.id,
-                                     file_name,
-                                     file_hash)
-        file_name = get_name(get_msg)
-        file_size = humanbytes(get_media_file_size(get_msg))
-        file_caption = get_msg.caption
-        shortened_link = await get_shortlink(stream_link)
-        
-        msg_text ="""
-<b>Your Link is Generated... ⚡\n
-📁 File Name :- {}\n
-📦 File Size :- {}\n
-🔠 File Captain :- {}\n
-📥 Fast Download Link :- {}\n
-❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n
-©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
+                                     get_msg.id)
 
-
-        await m.reply_text(
-            text=msg_text.format(file_name, file_size, file_caption, shortened_link),
-            parse_mode=ParseMode.HTML, quote=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Fast Download Link", url=shortened_link)], [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil")], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]])
+        msg_text = "**ᴛᴏᴜʀ ʟɪɴᴋ ɪs ɢᴇɴᴇʀᴀᴛᴇᴅ...⚡\n\n📧 ғɪʟᴇ ɴᴀᴍᴇ :-\n{}\n {}\n\n💌 ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ :- {}\n\n♻️ ᴛʜɪs ʟɪɴᴋ ɪs ᴘᴇʀᴍᴀɴᴇɴᴛ ᴀɴᴅ ᴡᴏɴ'ᴛ ɢᴇᴛ ᴇxᴘɪʀᴇᴅ ♻️\n\n<b>❖ YouTube.com/@itzjeol</b>**"
+        await m.reply_text(            
+            text=msg_text.format(file_name, file_size, stream_link),
+            
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡ ᴅᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ ⚡", url=stream_link)]])
         )
   
 @StreamBot.on_message(filters.command('help') & filters.private)
